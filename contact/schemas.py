@@ -12,7 +12,7 @@ class UserCreate(UserBase):
     phone: str
 
 
-class User(UserBase):
+class User(UserCreate):
     id: int
     is_emergency: bool
 
