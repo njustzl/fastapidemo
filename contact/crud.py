@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from fastapi import HTTPException
 
 from . import models, schemas
 
@@ -35,21 +36,16 @@ def create_user(db: Session, user: schemas.UserCreate):
 
 def update_user(db: Session, user: schemas.User):
     if user.id is None:
-        db.add(user)
-        db.commit()
-        db.refresh(user)
-        return user
+        raise HTTPException(status_code=400, detail=f"User ID cannot be None.")
     db_user = get_user(db, user.id)
     if db_user is None:
-        db.add(user)
-        db.commit()
-        db.refresh(user)
-        return user
+        raise HTTPException(status_code=404, detail=f"User with ID {user.id} not found.")
     db_user.name = user.name
     # db_user.image = user.image
     db_user.email = user.email
     # db_user.birthday = user.birthday
     db_user.phone = user.phone
+    db_user.is_emergency = user.is_emergency
     db.add(db_user)
     db.commit()
     return db_user
@@ -57,10 +53,10 @@ def update_user(db: Session, user: schemas.User):
 
 def delete_user(db: Session, user: schemas.User):
     if user.id is None:
-        return None
+        raise HTTPException(status_code=400, detail=f"User ID cannot be None.")
     db_user = get_user(db, user.id)
     if db_user is None:
-        return None
+        raise HTTPException(status_code=404, detail=f"User with ID {user.id} not found.")
     db.delete(db_user)
     db.commit()
     return db_user
@@ -68,10 +64,10 @@ def delete_user(db: Session, user: schemas.User):
 
 def delete_user_by_id(db: Session, user_id: int):
     if user_id is None:
-        return None
+        raise HTTPException(status_code=400, detail=f"User ID cannot be None.")
     db_user = get_user(db, user_id)
     if db_user is None:
-        return None
+        raise HTTPException(status_code=404, detail=f"User with ID {user.id} not found.")
     db.delete(db_user)
     db.commit()
     return db_user

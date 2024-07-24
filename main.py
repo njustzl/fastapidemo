@@ -1,6 +1,9 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
+import sys
+sys.path.append('.')
+
 from contact import crud, models, schemas
 from contact.database import SessionLocal, engine
 
@@ -45,7 +48,7 @@ def update_user(user: schemas.User, db: Session = Depends(get_db)):
     return crud.update_user(db=db, user=user)
 
 
-@app.delete("/users/", response_model=schemas.User)
+@app.delete("/users1/", response_model=schemas.User)
 def delete_user(user: schemas.User, db: Session = Depends(get_db)):
     return crud.delete_user(db=db, user=user)
 
