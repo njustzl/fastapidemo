@@ -48,9 +48,9 @@ def update_user(user: schemas.User, db: Session = Depends(get_db)):
     return crud.update_user(db=db, user=user)
 
 
-@app.delete("/users1/", response_model=schemas.User)
-def delete_user(user: schemas.User, db: Session = Depends(get_db)):
-    return crud.delete_user(db=db, user=user)
+# @app.delete("/users/", response_model=schemas.User)
+# def delete_user(user: schemas.User, db: Session = Depends(get_db)):
+#     return crud.delete_user(db=db, user=user)
 
 
 @app.delete("/users/{user_id}", response_model=schemas.User)

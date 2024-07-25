@@ -1,4 +1,7 @@
+import pytest
 from fastapi.testclient import TestClient
+from httpx import AsyncClient
+from datetime import datetime
 
 from .main import app
 
@@ -21,7 +24,7 @@ def test_read_users():
 
 
 def test_read_user():
-    response = client.get("/users/1")
+    response = client.get("/users/2")
     assert response.status_code == 404
     print(response.json())
 
@@ -34,14 +37,28 @@ def test_update_user():
     print(response.json())
 
 
-def test_delete_user():
-    test_user_data = {"name": "Bob", "email": "Bob@qq.com", "phone": "9876543210", "id": 1, "is_emergency": True}
-    response = client.delete("/users1/", json=test_user_data)
-    assert response.status_code == 200
-    assert response.json()["name"] == test_user_data["name"]
-    print(f"Deleted user: {response.json()}")
+# def test_delete_user():
+#     test_user_data = {"name": "Bob", "email": "Bob@qq.com", "phone": "9876543210", "id": 1, "is_emergency": True}
+#     response = client.delete("/users/", json=test_user_data)
+#     assert response.status_code == 200
+#     assert response.json()["name"] == test_user_data["name"]
+#     print(f"Deleted user: {response.json()}")
 
 
 def test_delete_user_by_id():
     response = client.delete("/users/2")
     assert response.status_code == 200
+
+
+@pytest.mark.anyio
+async def test_insert_and_query():
+    time = datetime.now()
+    print("start time:", time)
+    async with AsyncClient(app=app, base_url="http://testserver") as ac:
+        for i in range(100000):
+            response = await ac.get(url="/users/")
+    assert response.status_code == 200
+    print(response.json())
+    cost_time = datetime.now() - time
+    print("end time:", datetime.now())
+    print("cost time:", cost_time)

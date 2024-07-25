@@ -5,7 +5,7 @@ class UserBase(BaseModel):
     name: str
     # image: File
     email: str
-    # birthday: DateTime
+    # birthday: datetime
 
 
 class UserCreate(UserBase):
