@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e3b15112-00f3-4ecb-a605-402c1a4fd1c0" name="Changes" comment="Init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/crud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +36,8 @@
     "Python 测试.test_main.test_delete_user 的 Python 测试.executor": "Run",
     "Python 测试.test_main.test_delete_user_by_id 的 Python 测试.executor": "Run",
     "Python 测试.test_main.test_insert_and_query 的 Python 测试.executor": "Run",
+    "Python 测试.test_main.test_insert_and_query_sync 的 Python 测试.executor": "Run",
+    "Python 测试.test_main.test_insert_and_query_with_async 的 Python 测试.executor": "Run",
     "Python 测试.test_main.test_read_user 的 Python 测试.executor": "Run",
     "Python 测试.test_main.test_read_users 的 Python 测试.executor": "Run",
     "Python 测试.test_main.test_update_user 的 Python 测试.executor": "Run",
@@ -54,7 +57,7 @@
       <recent name="C:\Users\Lian\PycharmProjects\fastapidemo\contact" />
     </key>
   </component>
-  <component name="RunManager" selected="Python 测试.test_main.test_insert_and_query 的 Python 测试">
+  <component name="RunManager" selected="Python 测试.test_main.test_read_users 的 Python 测试">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="fastapidemo" />
       <option name="ENV_FILES" value="" />
@@ -107,7 +110,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="test_main.test_read_user 的 Python 测试" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="test_main.test_insert_and_query_sync 的 Python 测试" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="fastapidemo" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -118,7 +121,22 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_main.test_read_user&quot;" />
+      <option name="_new_target" value="&quot;test_main.test_insert_and_query_sync&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_main.test_insert_and_query_with_async 的 Python 测试" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="fastapidemo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_main.test_insert_and_query_with_async&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -137,28 +155,13 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="test_main.test_update_user 的 Python 测试" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="fastapidemo" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_main.test_update_user&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python 测试.test_main.test_insert_and_query 的 Python 测试" />
-        <item itemvalue="Python 测试.test_main.test_delete_user_by_id 的 Python 测试" />
-        <item itemvalue="Python 测试.test_main.test_read_user 的 Python 测试" />
-        <item itemvalue="Python 测试.test_main.test_update_user 的 Python 测试" />
         <item itemvalue="Python 测试.test_main.test_read_users 的 Python 测试" />
+        <item itemvalue="Python 测试.test_main.test_insert_and_query_with_async 的 Python 测试" />
+        <item itemvalue="Python 测试.test_main.test_delete_user_by_id 的 Python 测试" />
+        <item itemvalue="Python 测试.test_main.test_insert_and_query 的 Python 测试" />
+        <item itemvalue="Python 测试.test_main.test_insert_and_query_sync 的 Python 测试" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721899914963</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Init">
+      <option name="closed" value="true" />
+      <created>1721980707204</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1721980707204</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

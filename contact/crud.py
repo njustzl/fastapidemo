@@ -67,7 +67,7 @@ def delete_user_by_id(db: Session, user_id: int):
         raise HTTPException(status_code=400, detail=f"User ID cannot be None.")
     db_user = get_user(db, user_id)
     if db_user is None:
-        raise HTTPException(status_code=404, detail=f"User with ID {user.id} not found.")
+        raise HTTPException(status_code=404, detail=f"User with ID {user_id} not found.")
     db.delete(db_user)
     db.commit()
     return db_user
