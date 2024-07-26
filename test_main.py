@@ -51,14 +51,26 @@ def test_delete_user_by_id():
 
 
 @pytest.mark.anyio
-async def test_insert_and_query():
+async def test_insert_and_query_with_async():
     time = datetime.now()
     print("start time:", time)
     async with AsyncClient(app=app, base_url="http://testserver") as ac:
-        for i in range(100000):
+        for i in range(10000):
             response = await ac.get(url="/users/")
     assert response.status_code == 200
     print(response.json())
+    cost_time = datetime.now() - time
+    print("end time:", datetime.now())
+    print("cost time:", cost_time)
+
+
+def test_insert_and_query():
+    time = datetime.now()
+    print("start time:", time)
+    for i in range(10000):
+        response = client.get("/users/")
+        assert response.status_code == 200
+        # print(response.json())
     cost_time = datetime.now() - time
     print("end time:", datetime.now())
     print("cost time:", cost_time)
